@@ -10,4 +10,5 @@ grp3 = file.iloc[21:]
 print(grp3)
 
 print(sum(grp1['Calories']))
-hi jassssssssss
+print(sum(grp2['Calories']))
+print(sum(grp3['Calories']))
