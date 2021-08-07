@@ -1,4 +1,6 @@
+import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
 file = pd.read_excel('dataNew.xls')
 print(file)
 
@@ -22,4 +24,13 @@ grp2mean = grp2sum / len(grp2['Calories'])
 print(round(grp2mean, 2))
 grp3mean = grp3sum / len(grp3['Calories'])
 print(round(grp3mean, 2))
+
+ps = grp1['Calories'].sort_values()
+index = np.arange(grp1['Period'])
+plt.xlabel('year', fontsize=5)
+plt.ylabel('No. of calories', fontsize=10)
+plt.xticks(index, ps.index, fontsize=10)
+plt.title('No. of calories')
+plt.bar(ps.index, ps.values)
+plt.show()
 
