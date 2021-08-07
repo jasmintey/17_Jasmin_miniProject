@@ -4,6 +4,15 @@ import numpy as np
 file = pd.read_excel('dataNew.xls')
 print(file)
 
+date = file['Period'].str.split(' ', n = 1, expand = True)
+print(date)
+
+file = file.assign(grp1date_year=date[1])
+print(file)
+
+file.index = file['grp1date_year']
+print(file.index)
+
 grp1 = file.iloc[:11]
 print(grp1)
 grp2 = file.iloc[11:21]
@@ -25,15 +34,6 @@ print(round(grp2mean, 2))
 grp3mean = grp3sum / len(grp3['Calories'])
 print(round(grp3mean, 2))
 
-grp1date = grp1['Period'].str.split(' ', n = 1, expand = True)
-print(grp1date)
-
-grp1 = grp1.assign(grp1date_year=grp1date[1])
-print(grp1)
-
-grp1.index = grp1['grp1date_year']
-print(grp1.index)
-
 ps = grp1['Calories'].sort_values()
 index = np.arange(len(ps.index))
 plt.xlabel('year', fontsize=5)
@@ -43,3 +43,20 @@ plt.title('[1900-1910]')
 plt.bar(ps.index, ps.values)
 plt.show()
 
+ps = grp2['Calories'].sort_values()
+index = np.arange(len(ps.index))
+plt.xlabel('year', fontsize=5)
+plt.ylabel('No. of calories', fontsize=10)
+plt.xticks(index, ps.index, fontsize=10)
+plt.title('[1911-1920]')
+plt.bar(ps.index, ps.values)
+plt.show()
+
+ps = grp3['Calories'].sort_values()
+index = np.arange(len(ps.index))
+plt.xlabel('year', fontsize=5)
+plt.ylabel('No. of calories', fontsize=10)
+plt.xticks(index, ps.index, fontsize=10)
+plt.title('[1921-1930]')
+plt.bar(ps.index, ps.values)
+plt.show()
