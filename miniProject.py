@@ -7,10 +7,10 @@ print(file)
 date = file['Period'].str.split(' ', n = 1, expand = True)
 print(date)
 
-file = file.assign(grp1date_year=date[1])
+file = file.assign(date_year=date[1])
 print(file)
 
-file.index = file['grp1date_year']
+file.index = file['date_year']
 print(file.index)
 
 grp1 = file.iloc[:11]
@@ -36,7 +36,7 @@ print(round(grp3mean, 2))
 
 ps = grp1['Calories'].sort_values()
 index = np.arange(len(ps.index))
-plt.xlabel('year', fontsize=5)
+plt.xlabel('Year', fontsize=10)
 plt.ylabel('No. of calories', fontsize=10)
 plt.xticks(index, ps.index, fontsize=10)
 plt.title('[1900-1910]')
@@ -45,7 +45,7 @@ plt.show()
 
 ps = grp2['Calories'].sort_values()
 index = np.arange(len(ps.index))
-plt.xlabel('year', fontsize=5)
+plt.xlabel('Year', fontsize=10)
 plt.ylabel('No. of calories', fontsize=10)
 plt.xticks(index, ps.index, fontsize=10)
 plt.title('[1911-1920]')
@@ -54,7 +54,7 @@ plt.show()
 
 ps = grp3['Calories'].sort_values()
 index = np.arange(len(ps.index))
-plt.xlabel('year', fontsize=5)
+plt.xlabel('Year', fontsize=10)
 plt.ylabel('No. of calories', fontsize=10)
 plt.xticks(index, ps.index, fontsize=10)
 plt.title('[1921-1930]')
