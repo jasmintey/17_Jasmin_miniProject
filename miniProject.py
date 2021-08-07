@@ -1,3 +1,5 @@
 import pandas as pd
-data = pd.read_excel('dataNew.xls')
-123
+file = pd.read_excel('dataNew.xls')
+print(file)
+
+
