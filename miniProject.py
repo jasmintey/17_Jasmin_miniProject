@@ -13,11 +13,11 @@ print(file)
 file.index = file['date_year'] # Print original indexes
 print(file.index)
 
-grp1 = file.iloc[:11] # Summarize the first 11 columns
+grp1 = file[(file['date_year'] >= str(1900)) & (file['date_year'] <= str(1910))]
 print(grp1)
-grp2 = file.iloc[11:21] # Summarize the first 11 columns to 21 columns
+grp2 = file[(file['date_year'] >= str(1911)) & (file['date_year'] <= str(1920))]
 print(grp2)
-grp3 = file.iloc[21:] # Summarize the last 21 columns
+grp3 = file[(file['date_year'] >= str(1921)) & (file['date_year'] <= str(1930))]
 print(grp3)
 
 
