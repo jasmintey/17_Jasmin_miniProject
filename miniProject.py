@@ -56,6 +56,27 @@ plt.title('1921-1930')
 plt.bar(ps.index, ps.values)
 plt.show()
 
+ps = grp1['Calories'].sort_values(ascending=False) # find the calories in the data file and present the result in bar chart in descending order
+plt.xlabel('Year', fontsize=10)
+plt.ylabel('No. of calories', fontsize=10)
+plt.title('1900-1910')
+plt.bar(ps.index, ps.values)
+plt.show()
+
+ps = grp2['Calories'].sort_values(ascending=False)
+plt.xlabel('Year', fontsize=10)
+plt.ylabel('No. of calories', fontsize=10)
+plt.title('1911-1920')
+plt.bar(ps.index, ps.values)
+plt.show()
+
+ps = grp3['Calories'].sort_values(ascending=False)
+plt.xlabel('Year', fontsize=10)
+plt.ylabel('No. of calories', fontsize=10)
+plt.title('1921-1930')
+plt.bar(ps.index, ps.values)
+plt.show()
+
 class EvaluateMarks:
     def totalgrp1(num):
         return sum(num)
